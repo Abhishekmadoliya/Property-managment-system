@@ -1,9 +1,16 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 import { Star, MapPin, Bed, Bath } from 'lucide-react';
 
 export function PropertyCard({ property }) {
+  const navigate = useNavigate();
+
+  function handleListingClick() {
+    navigate(`/property/${property.id}`);
+  }
+
   return (
-    <div className="bg-white rounded-xl shadow-lg overflow-hidden transition-transform hover:scale-[1.02]">
+    <div className="bg-white rounded-xl shadow-lg overflow-hidden transition-transform hover:scale-[1.02]" onClick={handleListingClick}>
       <div className="relative aspect-[16/9]">
         <img
           src={property.imageUrl}
